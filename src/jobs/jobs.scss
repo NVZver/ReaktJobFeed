@@ -1,0 +1,13 @@
+.jobs {
+    display: flex;
+    padding: 15px;
+    box-sizing: border-box;
+    &-list {
+        &-wrapper {
+        }
+    }
+    &-view {
+        flex-basis: 60%;
+        margin-left: 15px;
+    }
+}
