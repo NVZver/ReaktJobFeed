@@ -14,7 +14,6 @@ export class Jobs extends Component {
     }
 
     handleJobSelect(job){
-        console.log('selected job: ', job);
         this.setState({
             selectedJob: job
         }); 
@@ -40,7 +39,6 @@ export class Jobs extends Component {
         return (
             <div className="jobs">
                 <JobsList  
-                    className="jobs-list"
                     onClick={this.handleJobSelect}
                 />
                 { this.createJobsView() }
