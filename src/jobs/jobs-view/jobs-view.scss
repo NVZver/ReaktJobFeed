@@ -1,3 +1,11 @@
 #leafletMap{
     height: 500px;
 }
+
+.jobs-vew {
+    &-actions {
+        display: flex;
+        justify-content: space-between;
+        aling-items: center;
+    }
+}
