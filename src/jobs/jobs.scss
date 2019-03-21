@@ -1,9 +1,15 @@
 .jobs {
     display: flex;
+    align-items: flex-start;
     padding: 15px;
     box-sizing: border-box;
+    height: 100vh;
+    overflow: hidden;
     &-list {
+        height: 100vh;
+        overflow: auto;
         &-wrapper {
+            flex-basis: 40%;
         }
     }
     &-view {
