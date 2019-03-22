@@ -1,6 +1,6 @@
 import {jobs} from './jobs.mock';
 
-class JobsService {
+export class JobsService {
 
     deletedJobs = [];
 
@@ -35,8 +35,3 @@ class JobsService {
     }
 
 }
-
-const instance = new JobsService();
-Object.freeze(instance);
-
-export default instance;

@@ -2,12 +2,13 @@ import React, {Component} from 'react';
 import {JobsFilterInput} from './jobs-filter-input/jobs-filter-input';
 import {JobsList} from './jobs-list/jobs-list';
 import {JobsView} from './jobs-view/jobs-view';
-import {default as JobsService} from './jobs.service';
+import {JobsService} from './jobs.service';
 import './jobs.scss';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
 export class Jobs extends Component {
+    jobsService;
     constructor(props){
         super(props);
         this.state = {
@@ -15,6 +16,10 @@ export class Jobs extends Component {
             jobs: [],
             filter: ''
         };
+
+        this.jobsService = new JobsService();
+
+        this.getJobs = this.getJobs.bind(this);
         this.handleJobSelect = this.handleJobSelect.bind(this);
         this.handleJobDelete = this.handleJobDelete.bind(this);
         this.createJobsView = this.createJobsView.bind(this);
@@ -26,8 +31,10 @@ export class Jobs extends Component {
     }
 
     getJobs(filter = this.state.filter){
-        const jobs = JobsService.getJobs(filter);
-        this.setState({jobs});
+        const jobs = this.jobsService.getJobs(filter);
+        this.setState({
+            jobs: jobs
+        });
     }
 
     handleJobSelect(job){
@@ -37,14 +44,13 @@ export class Jobs extends Component {
     }
 
     handleJobDelete(job_title){
-        JobsService.jobDelete(job_title);
+        this.jobsService.jobDelete(job_title);
         this.getJobs();
         this.setState({ selectedJob: undefined });
     }
 
     handleFilterChange(filter){
-        this.setState({filter});
-        this.getJobs();
+        this.getJobs(filter);
     }
 
     createJobsView(){

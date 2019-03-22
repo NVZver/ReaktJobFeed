@@ -12,11 +12,10 @@ export class JobsList extends Component {
         this.handleJobClick = this.handleJobClick.bind(this);
     }
 
-
     createJobsList(jobs){
         jobs = jobs || [];
         return jobs.map((job, key)=><JobsListItem 
-            key = {key}
+            key = {'job' + key}
             job_title = {job.job_title}
             organization_name = {job.organization_name}
             onClick = {this.handleJobClick}

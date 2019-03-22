@@ -13,7 +13,7 @@ export class JobsFilterInput extends Component {
     handleInputChange(event){
         const value = event.target.value;
         this.setState({value});
-        this.props.onChange(this.state.value);
+        this.props.onChange(value);
     }
 
 
